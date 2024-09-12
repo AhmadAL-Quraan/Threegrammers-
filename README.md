@@ -77,3 +77,9 @@
 * Note : I didn't implement role-based access control ( Long tutorial and no time :> )
   
 * Note : The Info api won't work because of the cutomized detailService.
+
+![Screenshot_20240912_215215](https://github.com/user-attachments/assets/abe859b8-cede-495e-a48d-2fd50db3fef8)
+
+  ![Screenshot_20240912_215252](https://github.com/user-attachments/assets/d728541f-ecdd-4331-9205-437e61b9c4d0)
+
+![Screenshot_20240912_215231](https://github.com/user-attachments/assets/90c87011-6b29-441a-8397-137dee59f10f)

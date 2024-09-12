@@ -1,7 +1,7 @@
 * Task: Build a User Authentication API using JWT (Access & Refresh Tokens)
 
 
-*Objective:
+* Objective:
 
 *   Create a REST API that allows users to sign up, log in, and log out using JWT for authentication and authorization. Implement Access and Refresh tokens for session management and build a secure API that retrieves user information once authenticated.
 
@@ -52,10 +52,10 @@
 
 * Constraints:
 
-  *Use JWT for generating both Access and Refresh tokens.
+  * Use JWT for generating both Access and Refresh tokens.
 
 
-   *Access Token: Include user information and set a short expiration time.
+   * Access Token: Include user information and set a short expiration time.
 
 
   * Refresh Token: Use to generate new Access tokens without requiring login and set a longer expiration time.

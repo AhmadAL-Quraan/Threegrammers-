@@ -1,74 +1,77 @@
-Task: Build a User Authentication API using JWT (Access & Refresh Tokens)
+* Task: Build a User Authentication API using JWT (Access & Refresh Tokens)
 
 
-Objective:
-Create a REST API that allows users to sign up, log in, and log out using JWT for authentication and authorization. Implement Access and Refresh tokens for session management and build a secure API that retrieves user information once authenticated.
+*Objective:
+
+*   Create a REST API that allows users to sign up, log in, and log out using JWT for authentication and authorization. Implement Access and Refresh tokens for session management and build a secure API that retrieves user information once authenticated.
 
 
-Requirements:
+* Requirements:
 
 
-Sign-up API:
-Create a new user with a username, email, and password.
+     * Sign-up API: 
+                Create a new user with a username, email, and password.
 
 
-Hash the password before saving it to the database.
+   *  Hash the password before saving it to the database.
 
 
-Login API:
-Authenticate the user using their email and password.
+* Login API:
 
-Generate both Access and Refresh tokens after successful login.
+   * Authenticate the user using their email and password.
 
-
-Return these tokens in the response.
+   * Generate both Access and Refresh tokens after successful login.
 
 
-Logout API:
+    * Return these tokens in the response.
 
 
-Invalidate the refresh token (e.g., store invalid tokens in a blacklist or delete from database).
+* Logout API:
 
 
-Refresh Token API:
+     * Invalidate the refresh token (e.g., store invalid tokens in a blacklist or delete from database).
 
 
-Provide a route to refresh the Access token using the Refresh token.
+* Refresh Token API:
 
 
-Ensure that the Access token has a short expiry time (e.g., 15 minutes) and the Refresh token has a longer expiry (e.g., 7 days).
+   *  Provide a route to refresh the Access token using the Refresh token.
 
 
-User Info API (Protected API):
+   * Ensure that the Access token has a short expiry time (e.g., 15 minutes) and the Refresh token has a longer expiry (e.g., 7 days).
 
 
-Implement a route that returns the authenticated user's information (e.g., username, email) when accessed with a valid Access token.
+* User Info API (Protected API):
 
 
-This API should return a 401 Unauthorized error if the Access token is expired or invalid.
+   * Implement a route that returns the authenticated user's information (e.g., username, email) when accessed with a valid Access token.
 
 
-Constraints:
-Use JWT for generating both Access and Refresh tokens.
+   * This API should return a 401 Unauthorized error if the Access token is expired or invalid.
 
 
-Access Token: Include user information and set a short expiration time.
+* Constraints:
+
+  *Use JWT for generating both Access and Refresh tokens.
 
 
-Refresh Token: Use to generate new Access tokens without requiring login and set a longer expiration time.
+   *Access Token: Include user information and set a short expiration time.
 
 
-Bonus:
-Implement role-based access control (e.g., differentiate between regular users and admins).
+  * Refresh Token: Use to generate new Access tokens without requiring login and set a longer expiration time.
 
 
-Technology Requirements:
+* Bonus:
+   * Implement role-based access control (e.g., differentiate between regular users and admins).
 
 
-Backend: Any backend framework (Spring Boot, Node.js, Express, etc.).
+* Technology Requirements:
 
 
-Database: Use PostgreSQL to store user credentials and tokens if needed.
+  * Backend: Any backend framework (Spring Boot, Node.js, Express, etc.).
+
+
+  * Database: Use PostgreSQL to store user credentials and tokens if needed.
 
 
 * Note : I didn't implement role-based access control ( Long tutorial and no time :> )

@@ -48,10 +48,12 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class) // Add JWT filter
                 .build();
     }
-    @Bean
+//auth manager bean
+     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
+    //auth bean
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider val = new DaoAuthenticationProvider();

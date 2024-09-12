@@ -78,6 +78,26 @@
   
 * Note : The Info api won't work because of the cutomized detailService.
 
+![Screenshot_20240912_215850](https://github.com/user-attachments/assets/6cbeb190-0a36-44a1-9733-387e999a9a17)
+
+* Once authentication object was returnd back to the filter --> the filter will add the currently authenticated user to securtiy context ---> another word for the currently authenticated user is principle
+----> now in order to access princple spring using a wrapper around security context
+  which is called security context holder .
+  
+  ![Screenshot_20240912_220400](https://github.com/user-attachments/assets/936a7aa7-1900-45ec-8c8a-72d0687795e3)
+
+
+* SecurityContextHolder ---> have a static get context method on it which we can call to retrieve a principle and because it's static we call it from any part of the call base.
+
+* If we don't have a session we will be forced to go along all that to send a request .
+  
+![Screenshot_20240912_220626](https://github.com/user-attachments/assets/216eb60f-ee98-4bc4-8169-4f961add690f)
+
+  * So there is a securityContextHolderFilter which will try to load our user from the session and if successded then the user doesn't have to re-authenticate .
+
+  * Using JWT ----> statless form of authentication --> the data inside the token itself 
+
+
 ![Screenshot_20240912_215215](https://github.com/user-attachments/assets/abe859b8-cede-495e-a48d-2fd50db3fef8)
 
   ![Screenshot_20240912_215252](https://github.com/user-attachments/assets/d728541f-ecdd-4331-9205-437e61b9c4d0)

@@ -103,3 +103,45 @@
   ![Screenshot_20240912_215252](https://github.com/user-attachments/assets/d728541f-ecdd-4331-9205-437e61b9c4d0)
 
 ![Screenshot_20240912_215231](https://github.com/user-attachments/assets/90c87011-6b29-441a-8397-137dee59f10f)
+
+
+
+
+
+so how authentication work when i give a valid token
+ChatGPT said:
+ChatGPT
+
+When you provide a valid token in a web application using Spring Security, the authentication process typically follows these steps:
+1. Receiving the Request
+
+When a request is made to a secured endpoint, the request usually includes an authentication token, such as a JWT (JSON Web Token), in the Authorization header.
+2. Token Extraction
+
+A filter (often a custom filter in Spring Security) extracts the token from the request. For example, the token might be retrieved from the Authorization header:
+
+java
+
+String token = request.getHeader("Authorization");
+
+3. Token Validation
+
+The extracted token is validated to ensure it is correctly formatted and has not expired. This usually involves:
+
+    Signature Verification: Ensuring the token was signed with a known secret or public key.
+    Expiration Check: Checking if the token has expired.
+
+This validation is often handled by a custom filter or a library such as jjwt for JWT tokens.
+4. Token Parsing
+
+Once validated, the token is parsed to extract user information and authorities. This includes:
+
+    Claims Extraction: Extracting claims from the token, such as user ID, roles, and other custom attributes.
+
+5. Setting Authentication
+
+After parsing, a UsernamePasswordAuthenticationToken or a similar Authentication object is created and populated with:
+
+    Principal: The user details object, which could be an instance of your custom UserDetails class.
+    Credentials: Usually, this is the token itself or a placeholder if credentials are not used directly.
+    Authorities: The roles or authorities granted to the user.

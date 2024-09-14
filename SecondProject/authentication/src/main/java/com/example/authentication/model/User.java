@@ -36,7 +36,7 @@ public class User {
     }
 
 
- //   private String role;
+   private String role;
 
     //give authority 
     // @Override

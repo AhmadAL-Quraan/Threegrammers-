@@ -2,6 +2,10 @@ package com.example.authentication.filter;
 
 import com.example.authentication.Security.JWTUtility;
 import com.example.authentication.Service.UserDetailServiceCustom;  // Assuming you have a service to load user details
+import com.example.authentication.Service.UserDetailsCustom;
+import com.example.authentication.Service.UserService;
+import com.example.authentication.model.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,9 +25,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
     private JWTUtility jwtUtility;
-
+@Autowired
+private UserDetailServiceCustom userDetailServiceCustom;
     @Autowired
-    private UserDetailServiceCustom userDetailService; 
+    private UserService userService; 
     
     @Override
     protected void doFilterInternal(jakarta.servlet.http.HttpServletRequest request,
@@ -42,12 +47,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
                 
                 // Extract user information from token
-                String username = jwtUtility.extractUsername(token);
+                String username = jwtUtility.extractEmail(token);
 
                 if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                     // Load user details from the service
-                    UserDetails userDetails = userDetailService.loadUserByUsername(username);
-                    
+                    UserDetails userDetails = userDetailServiceCustom.loadUserByUsername(username);
+                   // UserDetails userDetails=(UserDetails) userService.findUesrByUsername(username);
                     if (userDetails != null) {
                         // Create authentication token
                         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(

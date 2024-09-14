@@ -49,7 +49,7 @@ public class JWTUtility {
     }
 
     // Extract Username from Token
-    public String extractUsername(String token) {
+    public String extractEmail(String token) {
         return extractClaims(token).getSubject();
     }
 
@@ -60,7 +60,7 @@ public class JWTUtility {
 
     // Validate Token
     public boolean validateToken(String token, String username) {
-        final String tokenUsername = extractUsername(token);
+        final String tokenUsername = extractEmail(token);
         return (username.equals(tokenUsername) && !isTokenExpired(token));
     }
 

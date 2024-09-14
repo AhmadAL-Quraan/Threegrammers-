@@ -38,22 +38,18 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Disable CSRF protection
                 .authorizeHttpRequests(request -> request
                   .requestMatchers("/api/v1/auth/signup","/api/v1/auth/login","/api/v1/auth/refreshToken").permitAll() // Allow access to signup
-    .                  requestMatchers(
-                                         "/api/v1/auth/logout",
-                                      
-                                     "/api/v1/auth/userInfo").authenticated()
+                  .requestMatchers(
+                          "/api/v1/auth/user/info","/api/v1/auth/logout").authenticated()
                           .anyRequest().permitAll())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Stateless session management
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class) // Add JWT filter
                 .build();
     }
-//auth manager bean
-     @Bean
+    @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
-    //auth bean
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider val = new DaoAuthenticationProvider();

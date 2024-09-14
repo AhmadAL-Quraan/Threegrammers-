@@ -62,7 +62,7 @@ public class authController {
           return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                   .body("Refresh token is expired.");
       }
-      String username = jwtUtility.extractUsername(refreshToken);
+      String username = jwtUtility.extractEmail(refreshToken);
 // Generate new access token
       String newAccessToken = jwtUtility.generateAccessToken(username);
 

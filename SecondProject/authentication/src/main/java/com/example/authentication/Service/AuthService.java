@@ -24,15 +24,13 @@ public class AuthService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
-    private final UserDetailServiceCustom userDetailServiceCustom;
     private final JWTUtility jwtUtility;
     private final AuthenticationManager authenticationManager;
 
     @Autowired
-    public AuthService(PasswordEncoder passwordEncoder, UserService userService, UserDetailServiceCustom userDetailServiceCustom, JWTUtility jwtUtility, AuthenticationManager authenticationManager) {
+    public AuthService(PasswordEncoder passwordEncoder, UserService userService,  JWTUtility jwtUtility, AuthenticationManager authenticationManager) {
         this.passwordEncoder = passwordEncoder;
         this.userService = userService;
-        this.userDetailServiceCustom = userDetailServiceCustom;
         this.jwtUtility = jwtUtility;
         this.authenticationManager = authenticationManager;
     }
